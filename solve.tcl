@@ -38,6 +38,11 @@ proc RandomBit {} {
 	return [expr {int(rand()*(2))}]
 }
 
+proc RandomInteger {max} {
+	return [expr {int(rand()*$max) + 1}]
+}
+
+
 set result "" 
 for {set i 0} {$i < 10} {incr i} {
 	catch RandomBit s
@@ -48,4 +53,9 @@ for {set i 0} {$i < 10} {incr i} {
 
 #set aaa ""
 catch {Support_mines::dec2bin 15 10} aaa
+puts $aaa
+
+
+
+catch {Support_mines::dec2bin [RandomInteger 100] 10} aaa
 puts $aaa
